@@ -2,8 +2,8 @@
   "name": "web-units",
   "version": "1.0.0",
   "description": "converting length and angle units in browser environment",
-  "main": "src/length.js",
-  "types": "src/length.d.ts",
+  "main": "dist/length.js",
+  "types": "dist/length.d.ts",
   "scripts": {
     "build:angle:copy": "node -e require('fs').createReadStream('src/angle.js').pipe(require('fs').createWriteStream('dist/angle.js'))",
     "build:angle:min": "uglifyjs dist/angle.js --compress --mangle -b \"beautify=false\" --source-map \"filename='angle.min.map',base='dist',url='angle.min.map'\" -o dist/angle.min.js",
@@ -22,6 +22,16 @@
     "type": "git",
     "url": "git+https://github.com/mmig/web-units.git"
   },
+  "files": [
+    "dist/angle.js",
+    "dist/angle.d.ts",
+    "dist/angle.min.js",
+    "dist/angle.min.map",
+    "dist/length.js",
+    "dist/length.d.ts",
+    "dist/length.min.js",
+    "dist/length.min.map"
+  ],
   "keywords": [
     "unit",
     "length",
