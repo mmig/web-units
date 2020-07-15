@@ -13,6 +13,8 @@ __Based on [heygrady/Units](https://github.com/heygrady/Units)__
 
 ### Use `length.js`
 
+_NOTE that `length` requires the `window.document` object_
+
  * "bare-bones" in web browser:  
    in the HTML load script:
    ```html
@@ -35,15 +37,14 @@ __Based on [heygrady/Units](https://github.com/heygrady/Units)__
  * as CommonJS module (e.g. in `node`):  
     for `node` install with `npm install web-units`, then use
     ```javascript
-    var length = require('length');
+    var length = require('web-units');
     // use length
     length.toPx(..)
     ```
-    _NOTE that `length` requires the `document` object!_
 
  * in TypeScript:  
    ```typescript
-   import * as length from 'length';
+   import * as length from 'web-units';
    // use length
    length.toPx(..)
    ```
@@ -72,7 +73,7 @@ __Based on [heygrady/Units](https://github.com/heygrady/Units)__
  * as CommonJS module (e.g. in `node`):  
     for `node` install with `npm install web-units`, then use
     ```javascript
-    var angle = require('length/dist/angle');
+    var angle = require('web-units/dist/angle');
     // use length
     angle.toRad(..)
     ```
@@ -80,7 +81,7 @@ __Based on [heygrady/Units](https://github.com/heygrady/Units)__
 
  * in TypeScript:  
    ```typescript
-   import * as angle from 'length/dist/angle';
+   import * as angle from 'web-units/dist/angle';
    // use length
    angle.toRad(..)
    ```
