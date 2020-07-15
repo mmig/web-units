@@ -1,0 +1,29 @@
+{
+  "name": "web-units",
+  "version": "1.0.0",
+  "description": "converting length and angle units in browser environment",
+  "main": "index.js",
+  "scripts": {
+    "build": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmig/web-units.git"
+  },
+  "keywords": [
+    "unit",
+    "length",
+    "angle",
+    "convert",
+    "browser"
+  ],
+  "author": "russa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/mmig/web-units/issues"
+  },
+  "homepage": "https://github.com/mmig/web-units#readme",
+  "devDependencies": {
+    "uglify-js": "^3.10.0"
+  }
+}
