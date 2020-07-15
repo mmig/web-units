@@ -1,4 +1,19 @@
-(function(window, document, undefined){
+;(function (root, factory) {
+    if (typeof define === 'function' && define.amd) {
+        // AMD. Register as an anonymous module.
+        define(function () {
+            return factory(root, root.document);
+        });
+    } else if (typeof module === 'object' && module.exports) {
+        // Node. Does not work with strict CommonJS, but
+        // only CommonJS-like environments that support module.exports,
+        // like Node.
+        module.exports = factory(root, root.document);
+    } else {
+        // Browser globals
+        root.Length = factory(root, root.document);
+    }
+}(typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : this, function (window, document, undefined) {
 "use strict";
 
 // create a test element
@@ -93,7 +108,7 @@ function curCSS(elem, prop) {
         innerHeight,
         parent,
         i = 4; // outerProp.length
-    
+
     if (getComputedStyle) {
         // FireFox, Chrome/Safari, Opera and IE9+
         value = getComputedStyle(elem)[prop];
@@ -140,8 +155,9 @@ function curCSS(elem, prop) {
     return value;
 }
 
-// expose the conversion function to the window object
-window.Length = {
-    toPx: toPx
+// export converter function
+return {
+	toPx: toPx
 };
-}(this, this.document));
+
+}));
