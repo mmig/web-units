@@ -2,9 +2,17 @@
   "name": "web-units",
   "version": "1.0.0",
   "description": "converting length and angle units in browser environment",
-  "main": "index.js",
+  "main": "src/length.js",
   "scripts": {
-    "build": "echo \"Error: no test specified\" && exit 1"
+    "build:angle:copy": "node -e require('fs').createReadStream('src/angle.js').pipe(require('fs').createWriteStream('dist/angle.js'))",
+    "build:angle:min": "uglifyjs dist/angle.js --compress --mangle -b \"beautify=false\" --source-map \"filename='angle.min.map',base='dist',url='angle.min.map'\" -o dist/angle.min.js",
+    "build:angle:map": "node -e require('fs').renameSync('dist/angle.min.js.map','dist/angle.min.map')",
+    "build:angle": "npm run build:angle:copy & npm run build:angle:min && npm run build:angle:map",
+    "build:length:copy": "node -e require('fs').createReadStream('src/length.js').pipe(require('fs').createWriteStream('dist/length.js'))",
+    "build:length:min": "uglifyjs dist/length.js --compress --mangle -b \"beautify=false\" --source-map \"filename='length.min.map',base='dist',url='length.min.map'\" -o dist/length.min.js",
+    "build:length:map": "node -e require('fs').renameSync('dist/length.min.js.map','dist/length.min.map')",
+    "build:length": "npm run build:length:copy & npm run build:length:min && npm run build:length:map",
+    "build": "npm run build:angle && npm run build:length"
   },
   "repository": {
     "type": "git",
