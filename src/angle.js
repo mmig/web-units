@@ -11,7 +11,7 @@
     module.exports = factory();
   } else {
     // Browser globals
-    root.Angle = factory();
+    root.angle = factory();
   }
 }(typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : this, function () {
 "use strict"

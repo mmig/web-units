@@ -11,7 +11,7 @@
     module.exports = factory(root, root.document);
   } else {
     // Browser globals
-    root.Length = factory(root, root.document);
+    root.length = factory(root, root.document);
   }
 }(typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : this, function (window, document, undefined) {
 "use strict";

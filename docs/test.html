@@ -45,7 +45,7 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
   <!-- Unit.js -->
-  <script src="../src/Length.js"></script>
+  <script src="../src/length.js"></script>
 
   <!-- test -->
   <script>
@@ -59,7 +59,7 @@
 
   while (i--) {
     $el = $(template(tmpl, vars, [units[i], 'Margin Left', units[i]])).appendTo($wrapper);
-    len = Length.toPx($el[0], units[i], 'marginLeft');
+    len = length.toPx($el[0], units[i], 'marginLeft');
     $(template(tmpl, vars, [len + 'px', 'Converted', units[i]])).appendTo($wrapper);
 
     console.log(units[i], '=>', len + 'px');
