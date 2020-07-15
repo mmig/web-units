@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "converting length and angle units in browser environment",
   "main": "src/length.js",
+  "types": "src/length.d.ts",
   "scripts": {
     "build:angle:copy": "node -e require('fs').createReadStream('src/angle.js').pipe(require('fs').createWriteStream('dist/angle.js'))",
     "build:angle:min": "uglifyjs dist/angle.js --compress --mangle -b \"beautify=false\" --source-map \"filename='angle.min.map',base='dist',url='angle.min.map'\" -o dist/angle.min.js",
@@ -12,7 +13,10 @@
     "build:length:min": "uglifyjs dist/length.js --compress --mangle -b \"beautify=false\" --source-map \"filename='length.min.map',base='dist',url='length.min.map'\" -o dist/length.min.js",
     "build:length:map": "node -e require('fs').renameSync('dist/length.min.js.map','dist/length.min.map')",
     "build:length": "npm run build:length:copy & npm run build:length:min && npm run build:length:map",
-    "build": "npm run build:angle && npm run build:length"
+    "copy:angle:typings": "node -e require('fs').createReadStream('src/angle.d.ts').pipe(require('fs').createWriteStream('dist/angle.d.ts'))",
+    "copy:length:typings": "node -e require('fs').createReadStream('src/length.d.ts').pipe(require('fs').createWriteStream('dist/length.d.ts'))",
+    "copy:typings": "npm run copy:angle:typings && npm run copy:length:typings",
+    "build": "npm run build:angle && npm run build:length && npm run copy:typings"
   },
   "repository": {
     "type": "git",
