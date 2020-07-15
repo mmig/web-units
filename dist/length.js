@@ -2,18 +2,18 @@
   if (typeof define === 'function' && define.amd) {
     // AMD. Register as an anonymous module.
     define(function () {
-      return factory(root, root.document);
+      return factory(root.document);
     });
   } else if (typeof module === 'object' && module.exports) {
     // Node. Does not work with strict CommonJS, but
     // only CommonJS-like environments that support module.exports,
     // like Node.
-    module.exports = factory(root, root.document);
+    module.exports = factory(root.document);
   } else {
     // Browser globals
-    root.length = factory(root, root.document);
+    root.length = factory(root.document);
   }
-}(typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : this, function (window, document, undefined) {
+}(typeof self !== 'undefined' ? self : typeof window !== 'undefined' ? window : this, function (document, undefined) {
 "use strict";
 
 // create a test element
