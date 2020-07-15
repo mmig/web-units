@@ -1,11 +1,93 @@
 # web-units
 
+[![MIT license](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![GitHub package.json version](https://img.shields.io/github/package-json/v/mmig/web-units/master)](https://github.com/mmig/web-units)
+[![npm](https://img.shields.io/npm/v/web-units)](https://www.npmjs.com/package/web-units)
+
 `web-units` is a JavaScript library for converting between angle and length units. Both are intended for use within other libraries that need to convert between acceptable CSS units when creating polyfills. Using these unit conversions allows a library to support all valid CSS units easily.
 
 __Based on [heygrady/Units](https://github.com/heygrady/Units)__
 
+## Usage
+
+
+### Use `length.js`
+
+ * "bare-bones" in web browser:  
+   in the HTML load script:
+   ```html
+   <script src="length.min.js"></script>
+   ```
+   then use exported (global) variable `length` in JavaScript code
+   ```javascript
+   length.toPx(..)
+   ```
+
+ * as AMD module e.g. with `require.js`:  
+   install/copy file and/or configure `require.js`, then use
+   ```javascript
+   require(['./length.min'], function(length){
+     // use length
+     length.toPx(..)
+   });
+   ```
+
+ * as CommonJS module (e.g. in `node`):  
+    for `node` install with `npm install web-units`, then use
+    ```javascript
+    var length = require('length');
+    // use length
+    length.toPx(..)
+    ```
+    _NOTE that `length` requires the `document` object!_
+
+ * in TypeScript:  
+   ```typescript
+   import * as length from 'length';
+   // use length
+   length.toPx(..)
+   ```
+
+### Use `angle.js`
+
+ * "bare-bones" in web browser:  
+   in the HTML load script:
+   ```html
+   <script src="angle.min.js"></script>
+   ```
+   then use exported (global) variable `length` in JavaScript code
+   ```javascript
+   angle.toRad(..)
+   ```
+
+ * as AMD module e.g. with `require.js`:  
+   install/copy file and/or configure `require.js`, then use
+   ```javascript
+   require(['./angle.min'], function(angle){
+     // use length
+     angle.toRad(..)
+   });
+   ```
+
+ * as CommonJS module (e.g. in `node`):  
+    for `node` install with `npm install web-units`, then use
+    ```javascript
+    var angle = require('length/dist/angle');
+    // use length
+    angle.toRad(..)
+    ```
+    _NOTE that `length` requires the `document` object!_
+
+ * in TypeScript:  
+   ```typescript
+   import * as angle from 'length/dist/angle';
+   // use length
+   angle.toRad(..)
+   ```
+
+
 ## `angle`
-Used for converting between various angle units. Angle calculations are simple math and the library is less than 500 characters when minified. There's a detailed description of [CSS angle units on the MDN](https://developer.mozilla.org/en/CSS/angle).
+Used for converting between various angle units. Angle calculations are simple math and the library is less than 650 characters when minified. There's a detailed description of [CSS angle units on the MDN](https://developer.mozilla.org/en/CSS/angle).
 
 ```javascript
 // Degrees
@@ -34,7 +116,7 @@ angle.toTurn('1turn'); //-> 1
 ```
 
 ## `length`
-Used for converting between various length units. Absolute units -- such as inches, points and centimeters -- are relative to the Screen DPI which is usually 96. Not all units are supported in every browser, in those cases 0 is returned. In all cases this library uses the browsers own CSS calculations (by setting values with the style property). There's a detailed description of [CSS length units on the MDN](https://developer.mozilla.org/en/CSS/length). The length library is around 1200 characters when minified.
+Used for converting between various length units. Absolute units -- such as inches, points and centimeters -- are relative to the Screen DPI which is usually 96. Not all units are supported in every browser, in those cases 0 is returned. In all cases this library uses the browsers own CSS calculations (by setting values with the style property). There's a detailed description of [CSS length units on the MDN](https://developer.mozilla.org/en/CSS/length). The length library is around 1450 characters when minified.
 
 ```javascript
 // Absolute Units
