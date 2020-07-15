@@ -4,7 +4,7 @@
 root = true
 
 [*]
-indent_style = tab
+indent_style = space
 indent_size = 2
 
 # We recommend you to keep these unchanged
@@ -18,6 +18,3 @@ trim_trailing_whitespace = false
 
 [package.json]
 insert_final_newline = false
-
-[*.{ts,html,css,json,md}]
-indent_style = space
